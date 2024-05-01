@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_JQueryEx.html</title>
+    <style type="text/css">
+        .container{display:flex; flex-direction:column; width:1080px; height:480px; justify-content:center;}
+        #tabs{
+            width:1080px; height:40px; display:flex;
+        }
+        #tabs div{width:180px; height:40px; box-sizing:border-box; border-radius:5px 5px 0 0 ; font-size:120%; cursor:defualt; display: flex; justify-content: center; align-items: center; /*border : 1px solid black;*/}
+
+        #content{position:relative; margin:0 auto; width:1080px; height:440px;}
+        .contents{
+            position:absolute; width:1080px; height:440px; left:0px; top:0px; line-height: 440px; text-align:center; font-size:120%;
+        }
+    </style>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script type="text/javaScript">
+        //6개의 메뉴가 나란히있고
+        //6개의 콘텐츠가 겹쳐있음
+        //메뉴 중 하나를 누르면 해당 컨텐츠가 show, 다른것들은 hide
+        //flex 쓰기 justify-content : center
+        $(function(){
+            // $('body').css({
+            //     'display':'flex',
+            //     'flex-direction':'column',
+            //     // 'align-items':'center'
+            //     // 'justify-content':'center'
+            // });
+            // $('#tabs').css({
+            //     // 'margin':'0 auto',
+            //     'width':'100%',
+            //     'display':'flex',
+            //     'flex-direction':'row',
+            //     'justify-content':'center'
+            // });
+            // $('#tabs div').css({
+            //     'width':'100px',
+            //     'display':'flex',
+            //     'justify-content':'center'
+            // });
+            $('#tabs div:eq(0)').css('background','#ebaa55');
+            $('#tabs div:eq(1)').css('background','#55ebd1');
+            $('#tabs div:eq(2)').css('background','#4fbde3');
+            $('#tabs div:eq(3)').css('background','#6ebe6d');
+            $('#tabs div:eq(4)').css('background','#95a096');
+            $('#tabs div:eq(5)').css('background','#ed8d2a');
+
+            // $('#contents').css({
+            //     // 'margin':'0 auto',
+            //     'width':'100%',
+            //     'display':'flex',
+            //     'flex-direction':'row',
+            //     'justify-content':'center'
+            // });
+            $('#content div:eq(0)').css('background','#ebaa55');
+            $('#content div:eq(1)').css('background','#55ebd1');
+            $('#content div:eq(2)').css('background','#4fbde3');
+            $('#content div:eq(3)').css('background','#6ebe6d');
+            $('#content div:eq(4)').css('background','#95a096');
+            $('#content div:eq(5)').css('background','#ed8d2a');
+            // content 들에 배경색을 탭메뉴와 맞춰주세요
+            // 메뉴를 클릭하면 해당 화면이 화면에 보이게 코딩합니다.
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="tabs">
+            <div>Menu A</div>
+            <div>Menu B</div>
+            <div>Menu C</div>
+            <div>Menu D</div>
+            <div>Menu E</div>
+            <div>Menu F</div>
+        </div>
+        <div id="content">
+            <div id="contents" class="content1">Content A</div>
+            <div id="contents" class="content2">Content A</div>
+            <div id="contents" class="content3">Content A</div>
+            <div id="contents" class="content4">Content A</div>
+            <div id="contents" class="content5">Content A</div>
+            <div id="contents" class="content6">Content A</div>
+        </div>
+    </div>
+</body>
+</html>
