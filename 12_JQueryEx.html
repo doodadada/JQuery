@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>12_JQueryEx.html</title>
     <style type="text/css">
-        .container{display:flex; flex-direction:column; width:1080px; height:480px; justify-content:center;}
+        .container{display:flex; flex-direction:column; width:1080px; height:480px; justify-content:center; margin:100px auto;}
         #tabs{
             width:1080px; height:40px; display:flex;
         }
         #tabs div{width:180px; height:40px; box-sizing:border-box; border-radius:5px 5px 0 0 ; font-size:120%; cursor:default; display: flex; justify-content: center; align-items: center; /*border : 1px solid black;*/}
 
         #content{position:relative; margin:0 auto; width:1080px; height:440px;}
-        #contents{
+        .contents{
             position:absolute; width:1080px; height:440px; left:0px; top:0px; line-height: 440px; text-align:center; font-size:120%;
         }
     </style>
@@ -63,13 +63,16 @@
             $('#content div:eq(5)').css('background','#ed8d2a');
             // content 들에 배경색을 탭메뉴와 맞춰주세요
             // 메뉴를 클릭하면 해당 화면이 화면에 보이게 코딩합니다.
+        });
+
+        $(function(){
             $('#tabs div').click(function(){
                 var idx = $(this).index();
-                $('#content div').css('display','none');
+                // $('.contents').css('display','none');
+                $('.contents').hide();
                 // $('#content div').eq(idx).show();
-                $('.content'+(idx+1)).show();
+                $('#content'+(idx+1)).show();
             });
-
         });
     </script>
 </head>
@@ -84,12 +87,12 @@
             <div>Menu F</div>
         </div>
         <div id="content">
-            <div id="contents" class="content1">Content A</div>
-            <div id="contents" class="content2">Content B</div>
-            <div id="contents" class="content3">Content C</div>
-            <div id="contents" class="content4">Content D</div>
-            <div id="contents" class="content5">Content E</div>
-            <div id="contents" class="content6">Content F</div>
+            <div class="contents" id="content1">Content A</div>
+            <div class="contents" id="content2">Content B</div>
+            <div class="contents" id="content3">Content C</div>
+            <div class="contents" id="content4">Content D</div>
+            <div class="contents" id="content5">Content E</div>
+            <div class="contents" id="content6">Content F</div>
         </div>
     </div>
 </body>
