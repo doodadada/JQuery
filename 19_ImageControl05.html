@@ -74,6 +74,7 @@
                         window.clearInterval(timer);
                         // $('#remote div:eq(10)').remove();
                         // $('#remote div:eq(10)').html('<div>■</div>');
+                        $('#remote div:eq(10)').html('■');
                     }
                     else{
                         // $('#remote div:eq(10)').remove();
@@ -85,6 +86,7 @@
                             dis=imgNum * -600;
                             $('#imgs').animate({left:dis},500);
                         },1000);
+                        $('#remote div:eq(10)').html('▶');
                     }
                 }
             );
@@ -132,6 +134,8 @@
                 });
                 
             });
+            $('#remote div').removeClass('selected');
+                $('#remote div').eq(imgNum+1).addClass('selected');
         });
     </script>
 </head>
