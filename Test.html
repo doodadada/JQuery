@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test.html</title>
+    <style type="text/css">
+        #view {
+            position: relative;
+            width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        #imgs {
+            position: absolute;
+            width: 7200px;
+            height: 500px;
+            left: 0;
+            top: 0;
+            border: 1px solid red;
+        }
+
+        img {
+            width: 1200px;
+            height: 500px;
+        }
+        #remote{ position: absolute; width:220px; height:50px; border:1px solid white; bottom:0; right:0; display:flex; justify-content:space-between}
+        #remote div{ position: relative; width:20px; height:20px; background: white; border-radius: 50%;  margin:15px 4px; text-align: center; line-height: 20px; font-weight: bold; cursor: pointer;}
+        #remote .selected{width:60px; border-radius: 10px;}
+        #content{
+            position:absolute;
+            width: 1200px;
+            height: 100px;
+            bottom:0;
+        }
+        #content div{
+            position:absolute;
+            width: 1200px;
+            height: 100px;
+            background:black;
+            opacity: 0.6;
+            color:white;
+            font-size: 90%;
+            bottom:-100px;
+            padding-left:20px;
+        }
+        
+        #number{
+            position:absolute;
+            width:100px;
+            height:50px;
+            right:0;
+            top:0;
+            margin-right:20px;
+            /* border:1px solid white; */
+            line-height: 0px;
+            text-align: right;
+            color:white;
+            font-size:120%;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+    <script type="text/javaScript">
+        $(function(){
+            var imgNum=0;
+            var timer;
+            var state=false;
+            var before;
+            //content들은 실행과 동시에 하단으로 이동
+            
+            
+            $("#content div:eq(0)").css("bottom","0");
+            window.setInterval(function(){
+                $('#content'+(imgNum+1)).animate({top:100},500); // 해당 그림 content가 내려감
+                imgNum++;
+                if(imgNum>5) imgNum=0;
+                dist = - 1200 * imgNum;
+                $('#imgs').animate({left:dist}, 500);
+                // $("#content .contents").css("bottom","-100px");
+                // $("#content .contents").hide();
+                $('#content'+(imgNum+1)).animate({top:0},1000); // 해당 그림 content가 위로 올라옴
+                $('#remote div').removeClass    ('selected');
+                $('#remote div').eq(imgNum).addClass('selected');
+                $('#number').html("<h5>"+(imgNum+1)+"/6"+"</h5>")
+            },2000);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="view">
+        <div id="imgs"><img src="images/Desert.jpg"><img src="images/Tulips.jpg"><img src="images/Jellyfish.jpg"><img
+            src="images/Lighthouse.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Koala.jpg"></div>
+        <div id="content">
+            <div class="contents" id="content1"><h3>First Image</h3>
+            <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p>
+            </div>
+            <div class="contents" id="content2"><h3>Second Image</h3>
+                <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p>
+            </div>
+            <div class="contents" id="content3"><h3>Thrid Image</h3>
+                <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p>
+            </div>
+            <div class="contents" id="content4"><h3>Fourth Image</h3>
+                <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p>
+            </div>
+            <div class="contents" id="content5"><h3>Fifth Image</h3>
+                <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p></div>
+            <div class="contents" id="content6"><h3>Sixth Image</h3>
+                <p>It is a long established fact that a reader will be disctracted by the readable<br />content of a page when looking at its layout.</p></div>
+        </div>
+        <div id="remote">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <div id="number">
+            <h5>1/6</h5>
+        </div>
+    </div>
+</body>
+
+</html>
